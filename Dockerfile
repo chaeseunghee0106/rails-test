@@ -20,6 +20,10 @@ COPY Gemfile Gemfile.lock ./
 # bundle installの実行
 RUN bundle install
 
+# エントリーポイントスクリプトをコピー
+COPY bin/docker-entrypoint ./bin/docker-entrypoint
+RUN chmod +x ./bin/docker-entrypoint
+
 # アプリケーションのコードをコピー
 COPY . .
 
